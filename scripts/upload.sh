@@ -25,7 +25,11 @@ aws s3 sync \
     --endpoint-url "$ENDPOINT" \
     --delete \
     --size-only \
-    --cache-control "public,max-age=31536000,immutable"
+    --cache-control "public,max-age=31536000,immutable" \
+    --exclude ".DS_Store" \
+    --exclude "*/.DS_Store" \
+    --exclude "._*" \
+    --exclude "*/._*"
 
 echo
 echo "Done."
