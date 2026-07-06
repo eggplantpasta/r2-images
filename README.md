@@ -4,18 +4,35 @@ This repo holds the scripts used to implement the workflow to optimise and uploa
 
 ## Image optimisation and upload
 
-
+```bash
+source r2.env
+scripts/process.sh
+scripts/upload.sh
+```
 
 ## Prerequisites
 
-* [ImageMagick](https://imagemagick.org/#gsc.tab=0)
-
-* [AWS CLI](https://aws.amazon.com/cli/)
-
+* [ImageMagick](https://imagemagick.org/)
+  
+Linux
 ```bash
 sudo apt install awscli 
 ```
 
+MacOS
+```bash
+brew install imagemagick
+brew install ghostscript
+```
+
+* [AWS CLI](https://aws.amazon.com/cli/)
+
+Linux
+```bash
+sudo apt install awscli 
+```
+
+MacOS
 ```bash
 brew install awscli
 ```
