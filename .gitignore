@@ -5,3 +5,6 @@ images/*
 # Do not ignore the .gitkeep file
 !image-originals/.gitkeep
 !images/.gitkeep
+
+# Ignore environment files
+*.env
