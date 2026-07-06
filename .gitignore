@@ -1,0 +1,7 @@
+# Ignore all files and subfolders
+image-originals/*
+images/*
+
+# Do not ignore the .gitkeep file
+!image-originals/.gitkeep
+!images/.gitkeep
