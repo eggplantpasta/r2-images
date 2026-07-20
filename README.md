@@ -10,6 +10,13 @@ scripts/process.sh
 scripts/upload.sh
 ```
 
+## Download missing images
+
+```bash
+source r2.env
+scripts/download.sh
+```
+
 ## Prerequisites
 
 * [ImageMagick](https://imagemagick.org/)
