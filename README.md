@@ -17,6 +17,13 @@ source r2.env
 scripts/download.sh
 ```
 
+## Sync local images with R2
+
+```bash
+source r2.env
+scripts/sync.sh
+```
+
 ## Prerequisites
 
 * [ImageMagick](https://imagemagick.org/)
