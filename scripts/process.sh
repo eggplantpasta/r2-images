@@ -10,6 +10,7 @@ OUTPUT_DIR="$ROOT_DIR/images"
 
 MAX_SIZE=1600
 QUALITY=82
+THUMB_SIZE=480
 
 find "$INPUT_DIR" -type f \
     \( -iname "*.jpg" -o \
@@ -21,10 +22,13 @@ find "$INPUT_DIR" -type f \
 do
     rel="${infile#$INPUT_DIR/}"
     outfile="$OUTPUT_DIR/${rel%.*}.webp"
+    thumbfile="$OUTPUT_DIR/${rel%.*}-thumb.webp"
 
     mkdir -p "$(dirname "$outfile")"
+    mkdir -p "$(dirname "$thumbfile")"
 
-    if [[ -f "$outfile" && "$outfile" -nt "$infile" ]]; then
+    if [[ -f "$outfile" && "$outfile" -nt "$infile" &&
+        -f "$thumbfile" && "$thumbfile" -nt "$infile" ]]; then
         echo "Skipping $rel"
         continue
     fi
@@ -37,4 +41,11 @@ do
         -strip \
         -quality "$QUALITY" \
         "$outfile"
+    
+    magick "$infile" \
+        -auto-orient \
+        -resize "${THUMB_SIZE}x${THUMB_SIZE}>" \
+        -strip \
+        -quality "$QUALITY" \
+        "$thumbfile"
 done
